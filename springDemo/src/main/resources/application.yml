@@ -1,0 +1,7 @@
+#不要在此文件中添加任何配置
+spring:
+  profiles:
+    active: dev
+  # active: prod
+  # production mode use [application-prod.yml]
+  # develop mode use [application-dev.yml]

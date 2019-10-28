@@ -1,0 +1,167 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /myspring
+session:
+  timeout: 1800
+
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  #配置静态资源(可以不指定)
+  resources:
+    static-locations: classpath:/static/
+  #数据库访问配置
+  #主数据源 默认
+  #datasource:
+  #  driver-class-name: oracle.jdbc.driver.OracleDriver
+  #  url: jdbc:oracle:thin:@127.0.0.1:1521:orcls
+  #  username: orcl
+  #  password: orcl
+  #初始化大小 最小 最大
+  #  initialSize: 5
+  #  minIdle: 5
+  #  maxActive: 20
+  #配置获取连接等待超时时间
+  #  maxWait: 60000
+
+  #配置ES6
+#  data:
+#    elasticsearch:
+#      #配置es节点信息
+#      cluster-nodes: localhost:9300
+#      properties:
+#        path:
+#          logs: ./elasticsearch/log #es日志存储目录
+#          data: ./elasticsearch/data #es数据存储目录
+      #cluster-name: 127.0.0.1:9300
+
+  #热部署设置
+  devtools:
+    restart:
+      enabled: true
+      #设置重启的目录
+      additional-paths: src/main/java
+      #classpath目录下的WEB-INF文件夹内容修改不重启
+      exclude: WEB-INF/**
+  #配置Redis连接池属性
+  #配置redis服务器属性
+  redis:
+    jedis:
+      pool:
+        min-idle: 5
+        max-active: 10
+        max-idle: 10
+    port: 6379
+    host: 127.0.0.1
+    #连接超时时间 单位毫秒
+    timeout: 1000ms
+    password: 123456
+  #文件上传配置
+  # Multipart (MultipartProperties)
+  # 是否启用Spring MVC 多分部上传功能
+  servlet:
+    multipart:
+      enabled: true
+      #将文件写入磁盘的阈值。值可以使用后缀MB 或者 KB来表示兆字节或者字节大小
+      file-size-threshold: 0
+      #指定默认上传的文件夹
+      location: E:/JetBrains18/springDemo/log
+      #限制单个文件最大大小
+      max-file-size: 10MB
+      #限制所有文件的最大大小
+      max-request-size: 30MB
+      #是否延迟多部分文件请求的参数和文件的解析
+      resolve-lazily: false
+  #配置ActiveMQ和JMS消息
+#  activemq:
+    #ActiveMQ地址
+#    broker-url: localhost:8161
+    #用户名
+#    user: admin
+    #密码
+#    password: admin
+#    pool:
+      #是否启用连接池
+#      enabled: true
+      #连接池最大连接数配置
+#      max-connections: 50
+#  jms:
+    #是否使用发布订阅模式，默认为false,即用的是点对点的模式
+#    pub-sub-domain: true
+    #默认目的地址
+#    template:
+#      default-destination: activemq.default.destination
+
+  #RabbitMQ配置
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: 123456
+#    是否确认发送的消息已经被消费
+#    publisher-confirms: true
+#RabbitMQ的消息队列名称，由它发送字符串
+rabbitmq.queue.msg: spring-boot-queue-msg
+#RabbitMQ的消息队列名称，由它发送给用户对象
+rabbitmq.queue.user: spring-boot-queue-user
+#activemq artemis配置
+#  activemq:
+#    broker-url: localhost:8161
+#    user: admin
+#    password: admin
+
+#第一个数据库
+datasource1:
+  driver-class-name: oracle.jdbc.driver.OracleDriver
+  url: jdbc:oracle:thin:@127.0.0.1:1521:orcls
+  username: orcl
+  password: orcl
+  #初始化大小 最小 最大
+  initialSize: 5
+  minIdle: 5
+  maxActive: 20
+  #配置获取连接等待超时时间
+  maxWait: 60000
+
+#第二个数据库
+datasource2:
+  driver-class-name: oracle.jdbc.driver.OracleDriver
+  url: jdbc:oracle:thin:@127.0.0.1:1521:orcls
+  username: blob
+  password: blob
+  #初始化大小 最小 最大
+  initialSize: 5
+  minIdle: 5
+  maxActive: 20
+  #配置获取连接等待超时时间
+  maxWait: 60000
+
+
+http:
+  multipart:
+    max-request-size: 500MB
+    max-file-size: 100MB
+    resolve-lazily: true
+    enable: true
+
+#mybatis 配置
+#配置映射文件加载
+mybatis:
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+#mybatis分页插件pagehelper-spring-boot-starter配置
+pagehelper:
+  auto-dialect: oracle
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+uploadDir: E:/JetBrains18/springDemo/log/
+
+#阴匙 提高密码破解难度 只有拿到阴匙才能对密码进行匹配
+system.user.password.secret: uvwxyz
+

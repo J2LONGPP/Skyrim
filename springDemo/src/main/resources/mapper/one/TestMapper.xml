@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.spring.mapper.TestMapper">
+    <select id="getName" resultType="com.demo.spring.entity.Student">
+          select * from STUDENT t where t.id='1'
+    </select>
+
+    <select id="getSales" resultType="com.demo.spring.entity.Sale">
+          select * from SALES_TAB
+    </select>
+
+</mapper>
