@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="coder-custom-mvc:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/coder_custom_mvc_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="coder-custom-mvc/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="coder-custom-mvc" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
